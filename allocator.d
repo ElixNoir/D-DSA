@@ -5,3 +5,7 @@ interface Allocator {
     static final void* reallocate(void* address, ulong size);
     
 }
+
+enum isAllocator(T) =
+    __traits(compiles,
+             T.deallocate(T.allocate(1)));
